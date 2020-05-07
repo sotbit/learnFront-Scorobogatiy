@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+            <a href="#" class="breadcrumbs__link">Главная</a>
+        </li>
+        <li>
+            Блог
+        </li>
+    </ul>
+    <section class="blog">
+        <h1 class="blog__title">Блог</h1>
+        <div class="blog__wrap">
+            <div class="blog__content">
+                <div class="blog__item">
+                    <div class="blog__item-img-wrap">
+                        <img class="blog__item-img" src="#" alt="">
+                    </div>
+                    <a href="#" class="blog__item-title">
+                        Модные тенденции-2019: цвета, стили 
+                        и аксессуары
+                    </a>
+                    <p class="blog__item-text">
+                        Специально для Вас мы подготовили несколько модных советов 
+                        от дизайнеров. Уже сегодня вы можете узнать о том, что будет модно в новом году.
+                        Специально для Вас мы подготовили несколько модных советов от дизайнеров.
+                    </p>
+                    <div class="blog__item-tags-wrap">
+                        <span class="blog__item-tags-title">Теги:</span>
+                        <a href="#" class="blog__item-tag">Модные тенденции</a>
+                        <a href="#" class="blog__item-tag">Модные тенденции</a>
+                    </div>
+                    <div class="blog__item-info">
+                        <span class="blog__item-info-date">
+                            <svg width="13" height="13" viewBox="0 0 13 13">
+                                <path d="M6.5 3.2V6.5L8.7 7.6M12 6.5C12 9.53757 9.53757 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            20.03.2019
+                        </span>
+                        <span class="blog__item-info-comments">
+                            <svg width="12" height="11" viewBox="0 0 12 11">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00004 0C2.71926 0 0 2.17191 0 4.87999C0 6.17968 0.650193 7.43005 1.77233 8.34018L1.15246 10.0103C1.03105 10.2863 1.09994 10.6167 1.33585 10.8122C1.47395 10.9298 1.64987 11 1.83106 11C1.96012 11 2.08484 10.9638 2.20349 10.8976L2.20448 10.897L4.50778 9.58926C4.97854 9.70778 5.49744 9.75998 6.00004 9.75998C9.28082 9.75998 12.0001 7.58807 12.0001 4.87999C12.0001 2.17191 9.28082 0 6.00004 0ZM0.863777 4.87999C0.863777 2.68635 3.13826 0.842939 6.00004 0.842939C8.86181 0.842939 11.1363 2.68635 11.1363 4.87999C11.1363 7.07362 8.86181 8.91704 6.00004 8.91704C5.52586 8.91704 5.05096 8.86239 4.60362 8.7669L4.5128 8.75213C4.40421 8.73159 4.30334 8.75466 4.21813 8.78792L4.20819 8.7918L2.07176 10.0039L2.68195 8.35762L2.6823 8.35672C2.74613 8.18935 2.68693 7.98795 2.54089 7.87864L2.49861 7.83738L2.4907 7.83152C1.45058 7.06009 0.863777 5.98519 0.863777 4.87999Z"/>
+                            </svg>
+                            100
+                        </span>
+                        <span class="blog__item-info-views">
+                            <svg width="16" height="9" viewBox="0 0 16 9" >
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.81419 6.55876C2.75157 5.88232 1.87675 5.09154 1.31659 4.48474C1.82592 3.88651 2.6421 3.10749 3.67609 2.43937C4.9083 1.64317 6.41697 1.02532 8.05967 1.02532C9.70158 1.02532 11.1908 1.64262 12.3983 2.43707C13.4155 3.10639 14.2105 3.88706 14.7016 4.4845C14.1597 5.09074 13.306 5.8833 12.2602 6.56099C11.0243 7.36192 9.56304 7.97468 8.05967 7.97468C6.55534 7.97468 5.07481 7.36124 3.81419 6.55876ZM8.05967 0C6.16354 0 4.46513 0.711259 3.12615 1.57645C1.7884 2.44085 0.776605 3.47973 0.243709 4.19135L0 4.5168L0.259961 4.82923C0.8447 5.532 1.91802 6.56474 3.27006 7.42541C4.61933 8.28433 6.29058 9 8.05967 9C9.82973 9 11.4834 8.28365 12.8113 7.42319C14.1413 6.56132 15.1876 5.52707 15.7542 4.82265L16 4.51703L15.7705 4.19879C15.2559 3.48517 14.2711 2.44451 12.9553 1.57875C11.6376 0.711808 9.95661 0 8.05967 0ZM6.42721 4.11584C6.42721 3.16797 7.19032 2.39958 8.13167 2.39958C8.29643 2.39958 8.45165 2.29367 8.47992 2.13135L8.52303 1.88383C8.5681 1.62503 8.39436 1.37426 8.13167 1.37426C6.62795 1.37426 5.40894 2.60171 5.40894 4.11584C5.40894 5.62997 6.62795 6.85741 8.13167 6.85741C9.63539 6.85741 10.8544 5.62997 10.8544 4.11584C10.8544 4.04533 10.8517 3.97537 10.8465 3.90607C10.8294 3.67883 10.625 3.52034 10.3971 3.52034C10.0903 3.52034 9.83613 3.809 9.83613 4.11584C9.83613 5.0637 9.07301 5.83209 8.13167 5.83209C7.19032 5.83209 6.42721 5.0637 6.42721 4.11584Z"/>
+                            </svg>
+                            75
+                        </span>
+                    </div>
+                </div>
+                <div class="blog__show-more">
+                    <span class="blog__show-more-text">Показать еще</span> 
+                    <svg width="10" height="6" viewBox="0 0 10 6" >
+                        <path d="M9 1L5 5L1 1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="blog__pagination">
+                    <svg width="6" height="10" viewBox="0 0 6 10" >
+                        <path d="M5 9L1 5L5 1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <ul class="blog__pagination-list">
+                        <li class="blog__pagination-item">
+                           <a href="#" class="blog__pagination-link">1</a> 
+                        </li>
+                        <li>
+                            <a href="#" class="blog__pagination-link">2</a> 
+                        </li>
+                        <li>
+                            <a href="#" class="blog__pagination-link">3</a> 
+                        </li>
+                    </ul>
+                    <svg width="6" height="10" viewBox="0 0 6 10" >
+                        <path d="M1 1L5 5L1 9" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="blog__sidebar sidebar-blog">
+                <div class="sidebar-blog__tags-block">
+                    <p class="sidebar-blog__tags-title">Теги</p>
+                    <div class="sidebar-blog__tags-wrap">
+                        <a class="sidebar-blog__tag" href="#">Бензопилы</a>
+                        <a class="sidebar-blog__tag" href="#">Бензопилы</a>
+                        <a class="sidebar-blog__tag" href="#">Бензопилы</a>
+                    </div>
+                    <a href="#" class="sidebar-blog__tags-show-more">Показать все</a>
+                </div>
+                <div class="sidebar-blog__article-block">
+                    <p class="sidebar-blog__article-title">Интересные статьи</p>
+                    <a href="#" class="sidebar-blog__article-link">
+                        Сравниваем электропилы. Плюсы и минусы различных брендов
+                    </a>
+                    <a href="#" class="sidebar-blog__article-link">
+                        Сравниваем электропилы. Плюсы и минусы различных брендов
+                    </a>
+                </div>
+                <div class="sidebar-blog__subscribe">
+                    <form class="sidebar-blog__subscribe-form" action="#">
+                        <div class="sidebar-blog__subscribe-input-wrap">
+                            <input class="sidebar-blog__subscribe-input" type="email">
+                            <input class="sidebar-blog__subscribe-submit" type="submit">
+                        </div>
+                        <div class="sidebar-blog__subscribe-type-wrap">
+                            <p class="sidebar-blog__subscribe-type-title">Выберите рассылку</p>
+                            <div class="sidebar-blog__subscribe-type">
+                                <input class="sidebar-blog__subscribe-type-checkbox" type="checkbox" id="all-article">
+                                <label class="sidebar-blog__subscribe-type-label" for="all-article">Все разделы блога</label>
+                            </div>
+                            <div class="sidebar-blog__subscribe-type">
+                                <input class="sidebar-blog__subscribe-type-checkbox" type="checkbox" id="new-article">
+                                <label class="sidebar-blog__subscribe-type-label" for="new-article">Статьи о новинках магазина </label>
+                            </div>
+                            <div class="sidebar-blog__subscribe-type">
+                                <input class="sidebar-blog__subscribe-type-checkbox" type="checkbox" id="default-article">
+                                <label class="sidebar-blog__subscribe-type-label" for="new-article">Статьи на сторонние темы </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
