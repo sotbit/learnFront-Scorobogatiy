@@ -10,15 +10,15 @@
         <li class="breadcrumbs__item">
             <a href="#" class="breadcrumbs__link">Главная</a>
         </li>
-        <li>
-            Блог
+        <li class="breadcrumbs__item">
+           <span class="breadcrumbs__text">Блог</span> 
         </li>
     </ul>
     <section class="blog">
         <h1 class="blog__title">Блог</h1>
         <div class="blog__wrap">
             <div class="blog__content">
-                <div class="blog__item">
+                <section class="blog__item">
                     <div class="blog__item-img-wrap">
                         <img class="blog__item-img" src="#" alt="">
                     </div>
@@ -56,7 +56,7 @@
                             75
                         </span>
                     </div>
-                </div>
+                </section>
                 <div class="blog__show-more">
                     <span class="blog__show-more-text">Показать еще</span> 
                     <svg width="10" height="6" viewBox="0 0 10 6" >
@@ -83,17 +83,19 @@
                     </svg>
                 </div>
             </div>
-            <div class="blog__sidebar sidebar-blog">
-                <div class="sidebar-blog__tags-block">
+            <aside class="blog__sidebar sidebar-blog">
+                <section class="sidebar-blog__tags-block">
                     <p class="sidebar-blog__tags-title">Теги</p>
                     <div class="sidebar-blog__tags-wrap">
-                        <a class="sidebar-blog__tag" href="#">Бензопилы</a>
+
+                        <!-- достпуность переделать -->
+                        <a class="sidebar-blog__tag" href="#">Бензопилы</a> 
                         <a class="sidebar-blog__tag" href="#">Бензопилы</a>
                         <a class="sidebar-blog__tag" href="#">Бензопилы</a>
                     </div>
                     <a href="#" class="sidebar-blog__tags-show-more">Показать все</a>
-                </div>
-                <div class="sidebar-blog__article-block">
+                </section>
+                <article class="sidebar-blog__article-block">
                     <p class="sidebar-blog__article-title">Интересные статьи</p>
                     <a href="#" class="sidebar-blog__article-link">
                         Сравниваем электропилы. Плюсы и минусы различных брендов
@@ -101,12 +103,12 @@
                     <a href="#" class="sidebar-blog__article-link">
                         Сравниваем электропилы. Плюсы и минусы различных брендов
                     </a>
-                </div>
-                <div class="sidebar-blog__subscribe">
+                </article>
+                <section class="sidebar-blog__subscribe">
                     <form class="sidebar-blog__subscribe-form" action="#">
                         <div class="sidebar-blog__subscribe-input-wrap">
                             <input class="sidebar-blog__subscribe-input" type="email">
-                            <input class="sidebar-blog__subscribe-submit" type="submit">
+                            <button class="sidebar-blog__subscribe-submit" type="submit">Отправить</button>
                         </div>
                         <div class="sidebar-blog__subscribe-type-wrap">
                             <p class="sidebar-blog__subscribe-type-title">Выберите рассылку</p>
@@ -124,8 +126,8 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+                </section>
+            </aside>
         </div>
     </section>
 </body>
