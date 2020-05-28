@@ -2983,7 +2983,9 @@ body {
 
 @media (max-width: 1343px) {
   .actions__item-img-wrap {
-    height: 210px; } }
+    flex-basis: 210px; }
+  .actions__item {
+    height: 371px; } }
 
 @media (max-width: 1023px) {
   .actions {
@@ -3000,8 +3002,10 @@ body {
     width: 290px;
     margin-right: 20px; }
   .actions__item-img-wrap {
-    height: 190px;
+    flex-basis: 190px;
     margin-bottom: 0; }
+  .actions__item {
+    height: 323px; }
   .actions__item-date {
     font-size: 12px;
     line-height: 18px; } }
@@ -3022,7 +3026,9 @@ body {
     width: 220px;
     margin-right: 10px; }
   .actions__item-img-wrap {
-    height: 144px; }
+    flex-basis: 144px; }
+  .actions__item {
+    height: 261px; }
   .actions__item-date {
     font-size: 11px;
     line-height: 17px; }

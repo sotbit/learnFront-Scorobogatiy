@@ -1616,7 +1616,11 @@ body {
 
 @media(max-width:1343px) {
     .actions__item-img-wrap {
-        height: 210px;
+        flex-basis: 210px;
+    }
+
+    .actions__item { 
+        height: 371px;
     }
 }
 
@@ -1645,8 +1649,12 @@ body {
     }
     
     .actions__item-img-wrap {
-        height: 190px;
+        flex-basis: 190px;
         margin-bottom: 0;
+    }
+
+    .actions__item { 
+        height: 323px;
     }
 
     .actions__item-date {
@@ -1681,7 +1689,11 @@ body {
     }    
 
     .actions__item-img-wrap {
-        height: 144px;
+        flex-basis: 144px;
+    }
+
+    .actions__item { 
+        height: 261px;
     }
 
     .actions__item-date {
