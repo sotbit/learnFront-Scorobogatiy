@@ -122,7 +122,13 @@
 
 .slider-product-detail__icon-wrap {
     margin-bottom: 20px;
+    & .slider-product-detail__icons {
+        stroke: var(--main-color);
+    }
     &:hover {
+        & .slider-product-detail__icons {
+            stroke: var(--main-color);
+        }
         & .slider-product-detail__icon {
             stroke: var(--main-color);
         }
@@ -146,14 +152,14 @@
     margin-right: 5px;
     border: 1px solid transparent;
     cursor: pointer;
+    &:hover {
+        border: 1px solid #BDBDBD;
+    }
     &.active {
         border: 2px solid var(--main-color);
         &:hover {
             border: 2px solid var(--main-color);
         }
-    }
-    &:hover {
-        border: 1px solid #BDBDBD;
     }
 }
 
@@ -504,7 +510,7 @@
     &:hover {
         color: var(--main-color-hover);
         & .product-detail-buy__link-gift-icon {
-            stroke: var(--main-color-hover);   
+            stroke: var(--main-color-hover);
         }
     }
 }
@@ -641,7 +647,7 @@
         width: calc(50% - 25px);
         padding-top: 11px;
     }
-    
+
     .product-detail__info-product-wrap {
         width: calc(50% - 15px);
     }
@@ -649,7 +655,7 @@
     .product-detail__price-block {
         width: calc(50%);
         margin-right: 30px;
-    } 
+    }
 
     .product-detail__property-block {
         width: calc(50% - 30px);
@@ -679,7 +685,7 @@
     }
 }
 
-@media(max-width:1023px) { 
+@media(max-width:1023px) {
     .slider-product-detail__item {
         height: 500px;
     }
@@ -771,7 +777,7 @@
         flex-direction: row;
         align-items: center;
     }
-    
+
     .product-detail-buy__link-gift {
         margin-top: 0;
     }
@@ -818,7 +824,7 @@
     }
 }
 
-@media(max-width:767px) {  
+@media(max-width:767px) {
     .breadcrumbs {
         justify-content: center;
         padding: 10px 0;
@@ -1225,7 +1231,7 @@
     color: #808080;
 }
 
-@media(min-width:1024px) { 
+@media(min-width:1024px) {
     .prices-list__item-property-block {
         display: none;
         &.prices-list__item-property-block--color {
@@ -1239,13 +1245,13 @@
     }
 }
 
-@media(max-width:1343px) { 
+@media(max-width:1343px) {
     .prices-list__item-name,
     .prices-list__head-item--name {
         min-width: 34.3%;
         width: 34.3%;
     }
-    
+
     .prices-list__item-property-wrap,
     .prices-list__item-price,
     .prices-list__head-item--color,
@@ -1270,10 +1276,10 @@
     .prices-list__btn-add-to-basket {
         width: 100%;
         margin-right: 0;
-    }    
+    }
 }
 
-@media(max-width:1023px) {  
+@media(max-width:1023px) {
     .prices-list {
         padding-top: 40px;
     }
@@ -1675,7 +1681,7 @@
     }
 }
 
-@media(max-width:767px) { 
+@media(max-width:767px) {
     .sub-item-prices-list {
         margin-left: 0;
     }
