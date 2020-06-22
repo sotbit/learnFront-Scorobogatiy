@@ -1,0 +1,39 @@
+/*breadcramps*/
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0 30px 0;
+    margin: 0;
+}
+
+.breadcrumbs__item {
+    padding: 0;
+    list-style-type: none;
+}
+
+.breadcrumbs__link {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000;
+    &:hover {
+        color: var(--main-color);
+        & .breadcrumbs__link-arrow {
+            stroke: var(--main-color);
+        }
+    }
+}
+
+.breadcrumbs__link-arrow {
+    margin: 0 10px;
+    fill: none;
+    stroke: #000;
+}
+
+.breadcrumbs__last-item {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #808080;
+}
