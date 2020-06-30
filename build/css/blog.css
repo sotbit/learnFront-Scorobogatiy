@@ -15,6 +15,10 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box; }
 
+picture {
+  width: 100%;
+  height: 100%; }
+
 a {
   text-decoration: none; }
 
@@ -27,7 +31,11 @@ body {
   max-width: 1344px;
   margin: 0 auto; }
 
-@media (max-width: 1023px) {
+.block-1920 {
+  max-width: 1920px;
+  margin: 0 auto; }
+
+@media (max-width: 1344px) {
   .block-1344,
   .main-content {
     padding: 0 20px 40px 20px; } }
@@ -80,6 +88,8 @@ body {
   margin-right: 30px; }
 
 .header-top__city-icon {
+  width: 18px;
+  height: 22px;
   margin-top: 5px;
   margin-right: 12px;
   fill: none;
@@ -140,6 +150,8 @@ body {
   cursor: pointer; }
 
 .header-top__search-icon {
+  width: 18px;
+  height: 18px;
   fill: none;
   stroke: #BDBDBD; }
 
@@ -153,6 +165,8 @@ body {
   margin-right: 30px; }
 
 .header-top__phone-icon {
+  width: 20px;
+  height: 20px;
   margin-top: 5px;
   margin-right: 12px;
   fill: none;
@@ -173,6 +187,8 @@ body {
     color: var(--main-color-hover); }
 
 .header-top__phone-arrow {
+  width: 12px;
+  height: 7px;
   fill: none;
   stroke: #000; }
 
@@ -206,6 +222,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  width: 22px;
+  height: 22px;
   fill: none;
   stroke: #BDBDBD; }
 
@@ -278,6 +296,18 @@ body {
   fill: none;
   stroke: #BDBDBD; }
 
+.header-top__basket-icon--compare {
+  width: 26px;
+  height: 22px; }
+
+.header-top__basket-icon--favorite {
+  width: 24px;
+  height: 22px; }
+
+.header-top__basket-icon--buy {
+  width: 28px;
+  height: 22px; }
+
 .header-top__basket-count {
   display: -webkit-box;
   display: -moz-box;
@@ -317,6 +347,8 @@ body {
   cursor: pointer; }
 
 .mobile-menu__btn-icon {
+  width: 26px;
+  height: 18px;
   fill: none;
   stroke: #000; }
 
@@ -416,11 +448,15 @@ body {
     background-color: var(--main-color-hover); }
 
 .header-nav__item-icon-burger {
+  width: 26px;
+  height: 22px;
   margin-right: 20px;
   fill: none;
   stroke: #fff; }
 
 .header-nav__item-icon-arrow {
+  width: 12px;
+  height: 7px;
   margin-left: 20px;
   fill: none;
   stroke: #fff; }
@@ -485,9 +521,19 @@ body {
 
 .footer__info-icon {
   margin-right: 16px;
-  fill: none; }
-  .footer__info-icon path {
-    fill: var(--main-color); }
+  fill: var(--main-color); }
+
+.footer__info-icon--mark {
+  width: 10px;
+  height: 12px; }
+
+.footer__info-icon--latter {
+  width: 12px;
+  height: 8px; }
+
+.footer__info-icon--phone {
+  width: 12px;
+  height: 12px; }
 
 .footer__info-item-text {
   font-weight: normal;
@@ -582,6 +628,8 @@ body {
     background: var(--main-color-hover); }
 
 .footer__subscribe-submit-icon {
+  width: 24px;
+  height: 18px;
   fill: none;
   stroke: #fff; }
 
@@ -615,9 +663,7 @@ body {
     margin-right: 0; }
 
 .footer__social-icon {
-  fill: none; }
-  .footer__social-icon path {
-    fill: #fff; }
+  fill: #fff; }
 
 .footer__social-item--vk {
   background-color: #3D769C; }
@@ -929,6 +975,8 @@ body {
       stroke: var(--main-color); }
 
 .breadcrumbs__link-arrow {
+  width: 5px;
+  height: 9px;
   margin: 0 10px;
   fill: none;
   stroke: #000; }
@@ -1125,16 +1173,22 @@ body {
 .blog-page__item-info-comments-icon,
 .blog-page__item-info-views-icon {
   margin-right: 5px;
-  fill: none; }
-  .blog-page__item-info-comments-icon path,
-  .blog-page__item-info-views-icon path {
-    fill: #808080; }
+  fill: #808080; }
+
+.blog-page__item-info-comments-icon {
+  width: 12px;
+  height: 11px; }
+
+.blog-page__item-info-views-icon {
+  width: 16px;
+  height: 9px; }
 
 .blog-page__item-info-date-icon {
+  width: 13px;
+  height: 13px;
   margin-right: 5px;
-  fill: none; }
-  .blog-page__item-info-date-icon path {
-    stroke: #808080; }
+  fill: none;
+  stroke: #808080; }
 
 .blog-page__show-more {
   display: -webkit-box;
@@ -1241,6 +1295,8 @@ body {
   color: #000; }
 
 .blog-page__pagination-arrow {
+  width: 6px;
+  height: 10px;
   fill: none;
   stroke: #000; }
 
@@ -1288,6 +1344,8 @@ body {
       display: flex; }
 
 .sidebar-blog-page__tag-close-icon {
+  width: 8px;
+  height: 8px;
   fill: none;
   stroke: #fff; }
 
@@ -1396,6 +1454,8 @@ body {
     background: var(--main-color-hover); }
 
 .sidebar-blog-page__subscribe-submit-icon {
+  width: 26px;
+  height: 20px;
   fill: none;
   stroke: #fff; }
 

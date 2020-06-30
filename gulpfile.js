@@ -5,6 +5,33 @@ const postcss = require ("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const server = require ("browser-sync").create();
 const imagemin = require('gulp-imagemin');
+const svgstore = require("gulp-svgstore");
+const cheerio = require("gulp-cheerio");
+const rename = require('gulp-rename');
+const replace = require("gulp-replace");
+const run = require('run-sequence');
+
+gulp.task("svg-sprite", function () {
+    return gulp.src("source/img/svg/*.svg")
+    .pipe(svgstore({
+    inlineSvg: true
+    }))
+    .pipe(cheerio({
+    run: function ($) {
+    $('[fill]').removeAttr('fill');
+    $('[stroke]').removeAttr('stroke');
+    $('[style]').removeAttr('style');
+    },
+    parserOptions: {
+    xmlMode: true
+    }
+    }))
+    
+    .pipe(replace('&gt;', '>'))
+    .pipe(rename("sprite.svg"))
+    .pipe(gulp.dest("build/img/"));
+    });
+
 
 gulp.task("style", function () {
     return gulp.src('source/scss/*.scss')
@@ -31,21 +58,27 @@ gulp.task("copyfonts", function () {
 });
 
 gulp.task("img", function () {
-    return gulp.src(["source/img/**/*.{jpg,png,svg}"])
+    return gulp.src(["source/img/**/*.{jpg,png}"])
         .pipe(imagemin([
             imagemin.mozjpeg(),
-            imagemin.optipng(),
-            imagemin.svgo()
+            imagemin.optipng()
         ]))
         .pipe(gulp.dest("build/img"))
         .pipe(server.stream());
+});
+
+gulp.task("copy-webp", function () {
+    return gulp.src(["source/img/webp/**/*.webp"])
+        .pipe(gulp.dest("build/img/webp/"));
 });
 
 gulp.task("build", gulp.series (
     "style",
     "copyhtml",
     "copyfonts",
-    "img"
+    "img",
+    "svg-sprite",
+    "copy-webp"
 ));
 
 gulp.task("serve", function () {

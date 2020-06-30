@@ -54,9 +54,10 @@
 
 .slider-main-banner__item-content-tag {
     font-weight: 600;
-    font-size: 13px;
-    line-height: 20px;
-    color:#fff
+    font-size: 12px;
+    line-height: 18px;
+    color:#fff;
+    text-transform: uppercase;
 }
 
 .slider-main-banner__item-content-title {
@@ -609,6 +610,8 @@
 }
 
 .rating-star-icon {
+    width: 14px;
+    height: 13px;
     fill: #DADADA;
 }
 
@@ -618,6 +621,8 @@
 }
 
 .product-card__quantity-icon {
+    width: 14px;
+    height: 10px;
     margin-right: 6px;
     fill: none;
     stroke: #00B02A;
@@ -662,6 +667,11 @@
 
 .product-card__offers-item-input {
     display: none;
+    &:checked {
+        & + .product-card__offers-item-label {
+            border: 2px solid var(--main-color);
+        }
+    }
 }
 
 .product-card__offers-wrap {
@@ -675,8 +685,7 @@
     margin-right: 8px;
     border: 1px solid #EDEDED;
     cursor: pointer;
-    &:hover,
-    &.active {
+    &:hover {
         border: 2px solid var(--main-color);
     }
 }
@@ -901,6 +910,8 @@
 }
 
 .blog-item__link-icon {
+    width: 6px;
+    height: 10px;
     margin-left: 10px;
     fill: none;
     stroke: var(--main-color);
@@ -1206,6 +1217,8 @@
 }
 
 .actions__item-link-icon {
+    width: 6px;
+    height: 10px;
     margin-left: 10px;
     fill: none;
     stroke: var(--main-color);

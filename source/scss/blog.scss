@@ -170,18 +170,25 @@
 .blog-page__item-info-comments-icon,
 .blog-page__item-info-views-icon {
     margin-right: 5px;
-    fill: none;
-    & path {
-        fill: #808080;
-    }
+    fill: #808080;
+}
+
+.blog-page__item-info-comments-icon {
+    width: 12px;
+    height: 11px;
+}
+
+.blog-page__item-info-views-icon {
+    width: 16px;
+    height: 9px;
 }
 
 .blog-page__item-info-date-icon {
+    width: 13px;
+    height: 13px;
     margin-right: 5px;
     fill: none;
-    & path {
-        stroke: #808080;
-    }
+    stroke: #808080;
 }
 
 .blog-page__show-more {
@@ -249,6 +256,8 @@
 }
 
 .blog-page__pagination-arrow {
+    width: 6px;
+    height: 10px;
     fill: none;
     stroke: #000;
 }
@@ -292,6 +301,8 @@
 }
 
 .sidebar-blog-page__tag-close-icon {
+    width: 8px;
+    height: 8px;
     fill: none;
     stroke: #fff;
 }
@@ -395,6 +406,8 @@
 }
 
 .sidebar-blog-page__subscribe-submit-icon {
+    width: 26px;
+    height: 20px;
     fill: none;
     stroke: #fff;
 }
