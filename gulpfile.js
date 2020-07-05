@@ -9,7 +9,36 @@ const svgstore = require("gulp-svgstore");
 const cheerio = require("gulp-cheerio");
 const rename = require('gulp-rename');
 const replace = require("gulp-replace");
-const run = require('run-sequence');
+const webp = require('gulp-webp');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
+
+gulp.task("minify", function () {
+    return gulp.src("source/js/**/*.src.js")
+        .pipe(plumber())
+        .pipe(babel({
+            presets: ['@babel/env']
+          }))
+          .pipe(rename(function (path) {
+              let amountSimbolFileName = path.basename.lastIndexOf('.');
+              let fileName = path.basename.slice(0, amountSimbolFileName);
+            path.basename = fileName,
+            path.extname = '.js';
+            }))
+        .pipe(gulp.dest("build/js/"))
+        .pipe(uglify())
+        .pipe(rename(function (path) {
+            path.basename += ".min";
+        }))
+        .pipe(gulp.dest("build/js/"));
+});
+
+
+gulp.task('webp', () =>
+    gulp.src('source/img/**/*.{jpg,png}')
+        .pipe(webp())
+        .pipe(gulp.dest('build/img/webp/'))
+);
 
 gulp.task("svg-sprite", function () {
     return gulp.src("source/img/svg/*.svg")
@@ -52,6 +81,11 @@ gulp.task("copyhtml", function () {
         .pipe(gulp.dest("build/"));
 });
 
+gulp.task("copyjs", function () {
+    return gulp.src("source/js/assets/*.js")
+        .pipe(gulp.dest("build/js/assets/"));
+});
+
 gulp.task("copyfonts", function () {
     return gulp.src(["source/fonts/*.{woff,woff2}"])
         .pipe(gulp.dest("build/fonts"));
@@ -67,10 +101,6 @@ gulp.task("img", function () {
         .pipe(server.stream());
 });
 
-gulp.task("copy-webp", function () {
-    return gulp.src(["source/img/webp/**/*.webp"])
-        .pipe(gulp.dest("build/img/webp/"));
-});
 
 gulp.task("build", gulp.series (
     "style",
@@ -78,7 +108,9 @@ gulp.task("build", gulp.series (
     "copyfonts",
     "img",
     "svg-sprite",
-    "copy-webp"
+    "webp",
+    "minify",
+    "copyjs"
 ));
 
 gulp.task("serve", function () {
@@ -95,6 +127,7 @@ gulp.task("serve", function () {
     gulp.watch(["source/fonts/*.{woff,woff2}"], gulp.parallel(["copyfonts"]));
     gulp.watch(["source/img/**/*.{jpg,png,svg}"], gulp.parallel(["img"]));
     gulp.watch("source/*.html").on("change", server.reload);
+    gulp.watch('source/js/**/*.src.js', gulp.parallel(['minify']));
 });
 
 
