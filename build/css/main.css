@@ -1397,6 +1397,11 @@ body {
     line-height: 26px; } }
 
 /*products-block*/
+#template-card,
+#template-block-offers,
+#template-offer {
+  display: none; }
+
 .products-block {
   padding-top: 60px; }
 
