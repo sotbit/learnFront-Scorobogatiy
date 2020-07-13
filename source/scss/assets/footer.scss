@@ -50,7 +50,7 @@
 
 .footer__info-icon {
     margin-right: 16px;
-    fill: var(--main-color);
+    fill: $main-color;
 }
 
 .footer__info-icon--mark {
@@ -77,7 +77,7 @@
 .footer__info-item-text--link {
     color: #fff;
     &:hover {
-        color: var(--main-color);
+        color: $main-color;
     }
 }
 
@@ -85,13 +85,13 @@
     @include flex-center;
     width: 314px;
     height: 40px;
-    background-color: var(--main-color);
+    background-color: $main-color;
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;
     color: #fff;
     &:hover {
-        background-color: var(--main-color-hover);
+        background-color: $main-color-hover;
     }
 }
 
@@ -116,7 +116,7 @@
     line-height: 21px;
     color: #fff;
     &:hover {
-        color: var(--main-color);
+        color: $main-color;
     }
 }
 
@@ -141,10 +141,10 @@
     width: 60px;
     height: 40px;
     border: none;
-    background: var(--main-color);
+    background: $main-color;
     cursor: pointer;
     &:hover {
-        background: var(--main-color-hover);
+        background: $main-color-hover;
     }
 }
 
@@ -246,6 +246,7 @@
     justify-content: space-between;
     max-width: 1344px;
     min-height: 55px;
+    height: 54px;
     margin:0 auto;
 }
 

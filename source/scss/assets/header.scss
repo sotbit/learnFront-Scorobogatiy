@@ -64,6 +64,7 @@ body {
     align-items: center;
     max-width: 1344px;
     min-height: 100px;
+    height: 99px;
     margin: 0 auto;
 }
 
@@ -110,9 +111,9 @@ body {
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;
-    color: var(--main-color);
+    color: $main-color;
     &:hover {
-        color: var(--main-color-hover);
+        color: $main-color-hover;
     }
 }
 
@@ -181,9 +182,9 @@ body {
     font-weight: normal;
     font-size: 14px;
     line-height: 21px;
-    color: var(--main-color);
+    color: $main-color;
     &:hover {
-        color: var(--main-color-hover);
+        color: $main-color-hover;
     }
 }
 
@@ -234,9 +235,9 @@ body {
     line-height: 21px;
     color: #000;
     &:hover {
-        color: var(--main-color);
+        color: $main-color;
         & .header-top__account-icon {
-            stroke: var(--main-color);
+            stroke: $main-color;
         }
         
     }
@@ -258,7 +259,7 @@ body {
     position: relative;
     &:hover {
         .header-top__basket-icon {
-            stroke: var(--main-color);
+            stroke: $main-color;
         }
     }
 }
@@ -413,7 +414,7 @@ body {
 /*header_nav*/
 
 .header-nav {
-    background-color: var(--main-color);
+    background-color: $main-color;
 }
 
 .header-nav__list {
@@ -421,7 +422,7 @@ body {
     max-width: 1344px;
     margin: 0 auto;
     padding: 0;
-    border-left: 1px solid var(--main-color-hover);
+    border-left: 1px solid $main-color-hover;
 }
 
 .header-nav__item {
@@ -430,7 +431,7 @@ body {
     flex-grow: 1;
     min-height: 60px;
     list-style-type: none;
-    border-right: 1px solid var(--main-color-hover);
+    border-right: 1px solid $main-color-hover;
 }
 
 .header-nav__item-link {
@@ -444,7 +445,7 @@ body {
     line-height: 24px;
     color: #fff;
     &:hover {
-        background-color: var(--main-color-hover);
+        background-color: $main-color-hover;
     }
 }
 

@@ -91,14 +91,14 @@
     display: flex;
     margin-bottom: 20px;
     & .slider-product-detail__icons {
-        stroke: var(--main-color);
+        stroke: $main-color;
     }
     &:hover {
         & .slider-product-detail__icons {
-            stroke: var(--main-color);
+            stroke: $main-color;
         }
         & .slider-product-detail__icon {
-            stroke: var(--main-color);
+            stroke: $main-color;
         }
     }
 }
@@ -126,9 +126,9 @@
         border: 1px solid #BDBDBD;
     }
     &.active {
-        border: 2px solid var(--main-color);
+        border: 2px solid $main-color;
         &:hover {
-            border: 2px solid var(--main-color);
+            border: 2px solid $main-color;
         }
     }
 }
@@ -319,18 +319,18 @@
     height: 12px;
     margin-right: 6px;
     fill: none;
-    stroke: var(--main-color);
+    stroke: $main-color;
 }
 
 .price-block-product-detail__link {
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-    color: var(--main-color);
+    color: $main-color;
     &:hover {
-        color: var(--main-color-hover);
+        color: $main-color-hover;
         & .price-block-product-detail__link-icon {
-            stroke: var(--main-color-hover);
+            stroke: $main-color-hover;
         }
     }
 }
@@ -372,11 +372,11 @@
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-    color: var(--main-color);
+    color: $main-color;
     &:hover {
-        color: var(--main-color-hover);
+        color: $main-color-hover;
         & .product-detail__property-link-icon {
-            stroke: var(--main-color-hover);
+            stroke: $main-color-hover;
         }
     }
 }
@@ -386,7 +386,7 @@
     height: 6px;
     margin-left: 6px;
     fill: none;
-    stroke: var(--main-color);
+    stroke: $main-color;
 }
 
 .product-detail__offers-title {
@@ -420,7 +420,7 @@
     border: 1px solid #EDEDED;
     cursor: pointer;
     &.active {
-        border: 1px solid var(--main-color);
+        border: 1px solid $main-color;
     }
 }
 
@@ -493,7 +493,7 @@
     width: 135px;
     height: 40px;
     margin-right: 20px;
-    background-color: var(--main-color);
+    background-color: $main-color;
     border: none;
     font-family: "Open Sans Bold";
     font-weight: bold;
@@ -502,7 +502,7 @@
     color: #fff;
     cursor: pointer;
     &:hover {
-        background-color: var(--main-color-hover);
+        background-color: $main-color-hover;
     }
     &:focus {
         outline: none;
@@ -513,11 +513,11 @@
     @include flex-center;
     width: 167px;
     height: 40px;
-    border: 1px solid var(--main-color);
+    border: 1px solid $main-color;
     font-weight: normal;
     font-size: 14px;
     line-height: 21px;
-    color: var(--main-color);
+    color: $main-color;
     cursor: pointer;
     &:focus {
         outline: none;
@@ -529,7 +529,7 @@
     height: 16px;
     margin-right: 6px;
     fill: none;
-    stroke: var(--main-color);
+    stroke: $main-color;
 }
 
 .product-detail-buy__link-gift {
@@ -538,11 +538,11 @@
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-    color: var(--main-color);
+    color: $main-color;
     &:hover {
-        color: var(--main-color-hover);
+        color: $main-color-hover;
         & .product-detail-buy__link-gift-icon {
-            stroke: var(--main-color-hover);
+            stroke: $main-color-hover;
         }
     }
 }
@@ -576,9 +576,9 @@
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-    color: var(--main-color);
+    color: $main-color;
     &:hover {
-        color: var(--main-color-hover);
+        color: $main-color-hover;
     }
 }
 
@@ -587,7 +587,7 @@
     height: 6px;
     margin-left: 6px;
     fill: none;
-    stroke: var(--main-color);
+    stroke: $main-color;
 }
 
 .product-detail__share-link {
@@ -1136,7 +1136,7 @@
     background-color: #EDEDED;
     cursor: pointer;
     &.active {
-        background-color: var(--main-color);
+        background-color: $main-color;
         & .prices-list__item-arrow-icon {
             stroke: #fff;
             transform: rotateX(180deg);
@@ -1236,7 +1236,7 @@
     margin-right: 20px;
     &:hover {
         & .prices-list__icon {
-            stroke: var(--main-color);
+            stroke: $main-color;
         }
     }
 }
@@ -1302,7 +1302,7 @@
     width: 95px;
     height: 40px;
     margin-right: 10px;
-    background: var(--main-color);
+    background: $main-color;
     border: none;
     font-weight: bold;
     font-size: 14px;
@@ -1310,7 +1310,7 @@
     color:#fff;
     cursor: pointer;
     &:hover {
-        background: var(--main-color-hover);
+        background: $main-color-hover;
     }
 }
 
@@ -1321,8 +1321,8 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 21px;
-    color: var(--main-color);
-    border: 1px solid var(--main-color);
+    color: $main-color;
+    border: 1px solid $main-color;
 }
 
 .prices-list__item-property-title {
@@ -1514,10 +1514,10 @@
         font-weight: normal;
         font-size: 13px;
         line-height: 20px;
-        color: var(--main-color);
+        color: $main-color;
         cursor: pointer;
         &:hover {
-            color: var(--main-color-hover);
+            color: $main-color-hover;
         }
     }
 
@@ -1525,7 +1525,7 @@
         width: 10px;
         height: 6px;
         fill: none;
-        stroke: var(--main-color);
+        stroke: $main-color;
     }
 
     .prices-list__item-property {
@@ -1635,7 +1635,7 @@
     margin-right: 10px;
     fill: none;
     & path {
-        fill: var(--main-color);
+        fill: $main-color;
     }
 }
 
@@ -1732,7 +1732,7 @@
     line-height: 20px;
     color: #000;
     &:hover {
-        color: var(--main-color);
+        color: $main-color;
     }
 }
 
@@ -1972,20 +1972,20 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 21px;
-    color: var(--main-color);
+    color: $main-color;
 }
 
 .delivery__variants-show-more-icon {
     width: 10px;
     height: 6px;
     fill: none;
-    stroke: var(--main-color);
+    stroke: $main-color;
 }
 
 .delivery__variants-show-more:hover {
-    color: var(--main-color-hover);
+    color: $main-color-hover;
     & .delivery__variants-show-more-icon {
-        stroke: var(--main-color-hover);
+        stroke: $main-color-hover;
     }
 }
 

@@ -9,7 +9,6 @@
 </head>
 
 <body>
-   
     <header class="header">
         <div class="header__top header-top">
             <div class="header-top__mobile-menu mobile-menu">
@@ -136,8 +135,9 @@
                     <picture>
                         <source  media="(max-width: 768px)" type="image/webp" srcset="img/webp/banner_main-small.webp">
                         <source  media="(max-width: 768px)" srcset="img/banner_main-small.jpg">
-                        <source type="image/webp" srcset="img/webp/banner_main.webp">
-                        <img src="img/banner_main.jpg" class="slider-main-banner__img" alt="">
+                        <source type="image/webp" srcset="img/webp/banner_main.webp,
+                                                          img/webp/image-x2/banner_main-x2.webp 2x">
+                        <img srcset="img/image-x2/banner_main-x2.jpg 2x" src="img/banner_main.jpg" class="slider-main-banner__img" alt="">
                     </picture>
                     <div class="slider-main-banner__item-content">
                         <div class="slider-main-banner__item-content-inner">
@@ -161,8 +161,8 @@
             <div class="main-banner__category-block">
                 <a href="#" class="main-banner__category-item">
                     <picture>
-                        <source type="image/webp" srcset="img/webp/banner_side1.webp">
-                        <img src="img/banner_side1.jpg" class="main-banner__category-item-img" alt="">
+                        <source type="image/webp" srcset="img/webp/banner_side1.webp, img/webp/image-x2/banner_side1-x2.webp 2x">
+                        <img srcset="img/image-x2/banner_side1-x2.jpg" src="img/banner_side1.jpg" class="main-banner__category-item-img" alt="">
                     </picture>
                     <div class="main-banner__category-item-inner">
                         <span class="main-banner__category-item-title">Каталог</span>
@@ -173,8 +173,8 @@
                 </a>
                 <a href="#" class="main-banner__category-item">
                     <picture>
-                        <source type="image/webp" srcset="img/webp/banner_side2.webp">
-                        <img src="img/banner_side2.jpg" class="main-banner__category-item-img" alt="">
+                        <source type="image/webp" srcset="img/webp/banner_side2.webp, img/webp/image-x2/banner_side2-x2.webp 2x">
+                        <img srcset="img/image-x2/banner_side2-x2.jpg" src="img/banner_side2.jpg" class="main-banner__category-item-img" alt="">
                     </picture>
                     <div class="main-banner__category-item-inner">
                         <span class="main-banner__category-item-title">Акция</span>
@@ -185,8 +185,8 @@
                 </a>
                 <a href="#" class="main-banner__category-item">
                     <picture>
-                        <source type="image/webp" srcset="img/webp/banner_side3.webp">
-                        <img src="img/banner_side3.jpg" class="main-banner__category-item-img" alt="">
+                        <source type="image/webp" srcset="img/webp/banner_side3.webp, img/webp/image-x2/banner_side3-x2.webp 2x">
+                            <img srcset="img/image-x2/banner_side3-x2.jpg" src="img/banner_side3.jpg" class="main-banner__category-item-img" alt="">
                     </picture>
                     <div class="main-banner__category-item-inner">
                         <span class="main-banner__category-item-title">Блог</span>
@@ -326,13 +326,11 @@
                     <button class="products-block__tab-item-btn">Хиты</button>
                 </li>
             </ul>
-            <div class="products-block__tabs-content">
+            <div class="products-block__tabs-content"></div>
+            <template id="template-card">
                 <div class="products-block__card product-card">
                     <div class="product-card__img-wrap">
-                        <picture>
-                            <source type="image/webp" srcset="img/webp/prod_1.webp">
-                            <img src="img/prod_1.jpg" class="product-card__img" alt="">
-                        </picture>
+                        <img src="img/prod_1.jpg" class="product-card__img" alt="">
                     </div>
                     <div class="product-card__title-wrap">
                         <a href="/detail.html" class="product-card__title">
@@ -347,7 +345,7 @@
                                 <use xlink:href='/img/sprite.svg#icon_star'/>
                             </svg>
                         </label>
-                        <input class="rating-star-input" id="star-rating-4_ID1 type=" radio" name="star-rating_ID1"
+                        <input class="rating-star-input" id="star-rating-4_ID1" type="radio" name="star-rating_ID1"
                             value="4">
                         <label class="rating-star-label" for="star-rating-4_ID1">
                             <svg  class="rating-star-icon">
@@ -381,417 +379,18 @@
                             <svg class="product-card__quantity-icon">
                                 <use xlink:href='/img/sprite.svg#icon_check_checkbox'/>
                             </svg>
-                            37 шт
+                           <span class="product-card__quantity-count">37</span> шт 
                         </span>
                         <span class="product-card__articul">
-                            Артикул: 00674157
+                            Артикул: <span class="product-card__articul-text">00674157</span> 
                         </span>
                     </div>
                     <span class="product-card__price">3 100 руб.</span>
                     <form action="#" class="product-card__form">
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Цвет</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id1" checked>
-                                <label class="product-card__offers-item-label" for="offer_id1">
-                                    <img src="img/color.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id2">
-                                <label class="product-card__offers-item-label" for="offer_id2">
-                                    <img src="img/color_1.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id3">
-                                <label class="product-card__offers-item-label" for="offer_id3">
-                                    <img src="img/color_2.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id4">
-                                <label class="product-card__offers-item-label" for="offer_id4">
-                                    <img src="img/color_3.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Размер</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                        name="product-card__offers-size" id="offer_size_id1" checked>
-                                <label class="product-card__offers-item-label" for="offer_size_id1">
-                                    <span class="product-card__offers-item-label-text">
-                                        39
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id2">
-                                <label class="product-card__offers-item-label" for="offer_size_id2">
-                                    <span class="product-card__offers-item-label-text">
-                                        40
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                        name="product-card__offers-size" id="offer_size_id3">
-                                <label class="product-card__offers-item-label" for="offer_size_id3">
-                                    <span class="product-card__offers-item-label-text">
-                                        41
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
                         <button type="submit" class="product-card__add-to-basket">В корзину</button>
                     </form>
                 </div>
-                <div class="products-block__card product-card">
-                    <div class="product-card__img-wrap">
-                        <picture>
-                            <source type="image/webp" srcset="img/webp/prod_2.webp">
-                            <img src="img/prod_2.jpg" class="product-card__img" alt="">
-                        </picture>
-                    </div>
-                    <div class="product-card__title-wrap">
-                        <a href="/detail.html" class="product-card__title">
-                            Кроссовки VARSITY COMPETE TRAINER, Nike
-                        </a>
-                    </div>
-                    <div class="product-card__rating-star rating-star">
-                        <input class="rating-star-input" id="star-rating-5_ID1" type="radio" name="star-rating_ID1"
-                            value="5">
-                        <label class="rating-star-label" for="star-rating-5_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-4_ID1 type=" radio" name="star-rating_ID1"
-                            value="4">
-                        <label class="rating-star-label" for="star-rating-4_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-3_ID1" type="radio" name="star-rating_ID1"
-                            value="3">
-                        <label class="rating-star-label" for="star-rating-3_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-2_ID1" type="radio" name="star-rating_ID1"
-                            value="2">
-                        <label class="rating-star-label" for="star-rating-2_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-1_ID1" type="radio" name="star-rating_ID1"
-                            value="1">
-                        <label class="rating-star-label" for="star-rating-1_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                    </div>
-                    <div class="product-card__status-block">
-                        <span class="product-card__quantity">
-                            <svg class="product-card__quantity-icon">
-                                <use xlink:href='/img/sprite.svg#icon_check_checkbox'/>
-                            </svg>
-                            37 шт
-                        </span>
-                        <span class="product-card__articul">
-                            Артикул: 00674157
-                        </span>
-                    </div>
-                    <span class="product-card__price">6 000 руб.</span>
-                    <form action="#" class="product-card__form">
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Цвет</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id5" checked>
-                                <label class="product-card__offers-item-label" for="offer_id5">
-                                    <img src="img/color.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id6">
-                                <label class="product-card__offers-item-label" for="offer_id6">
-                                    <img src="img/color_1.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id7">
-                                <label class="product-card__offers-item-label" for="offer_id7">
-                                    <img src="img/color_2.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id8">
-                                <label class="product-card__offers-item-label" for="offer_id8">
-                                    <img src="img/color_3.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Размер</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id4" checked>
-                                <label class="product-card__offers-item-label" for="offer_size_id4">
-                                    <span class="product-card__offers-item-label-text">
-                                        39
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id5">
-                                <label class="product-card__offers-item-label" for="offer_size_id5">
-                                    <span class="product-card__offers-item-label-text">
-                                        40
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                        name="product-card__offers-size" id="offer_size_id6">
-                                <label class="product-card__offers-item-label" for="offer_size_id6">
-                                    <span class="product-card__offers-item-label-text">
-                                        41
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="product-card__add-to-basket">В корзину</button>
-                    </form>
-                </div>
-                <div class="products-block__card product-card">
-                    <div class="product-card__img-wrap">
-                        <picture>
-                            <source type="image/webp" srcset="img/webp/prod_3.webp">
-                            <img src="img/prod_3.jpg" class="product-card__img" alt="">
-                        </picture>
-                    </div>
-                    <div class="product-card__title-wrap">
-                        <a href="/detail.html" class="product-card__title">
-                            Кроссовки REVOLUTION 4 (GS), Nike
-                        </a>
-                    </div>
-                    <div class="product-card__rating-star rating-star">
-                        <input class="rating-star-input" id="star-rating-5_ID1" type="radio" name="star-rating_ID1"
-                            value="5">
-                        <label class="rating-star-label" for="star-rating-5_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-4_ID1 type=" radio" name="star-rating_ID1"
-                            value="4">
-                        <label class="rating-star-label" for="star-rating-4_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-3_ID1" type="radio" name="star-rating_ID1"
-                            value="3">
-                        <label class="rating-star-label" for="star-rating-3_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-2_ID1" type="radio" name="star-rating_ID1"
-                            value="2">
-                        <label class="rating-star-label" for="star-rating-2_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-1_ID1" type="radio" name="star-rating_ID1"
-                            value="1">
-                        <label class="rating-star-label" for="star-rating-1_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                    </div>
-                    <div class="product-card__status-block">
-                        <span class="product-card__quantity">
-                            <svg class="product-card__quantity-icon">
-                                <use xlink:href='/img/sprite.svg#icon_check_checkbox'/>
-                            </svg>
-                            37 шт
-                        </span>
-                        <span class="product-card__articul">
-                            Артикул: 00674157
-                        </span>
-                    </div>
-                    <span class="product-card__price">4 500 руб.</span>
-                    <form action="#" class="product-card__form">
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Цвет</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id9" checked>
-                                <label class="product-card__offers-item-label" for="offer_id9">
-                                    <img src="img/color.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id10">
-                                <label class="product-card__offers-item-label" for="offer_id10">
-                                    <img src="img/color_1.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id11">
-                                <label class="product-card__offers-item-label" for="offer_id11">
-                                    <img src="img/color_2.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id12">
-                                <label class="product-card__offers-item-label" for="offer_id12">
-                                    <img src="img/color_3.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Размер</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id7" checked>
-                                <label class="product-card__offers-item-label" for="offer_size_id7">
-                                    <span class="product-card__offers-item-label-text">
-                                        39
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id8">
-                                <label class="product-card__offers-item-label" for="offer_size_id8">
-                                    <span class="product-card__offers-item-label-text">
-                                        40
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                        name="product-card__offers-size" id="offer_size_id9">
-                                <label class="product-card__offers-item-label" for="offer_size_id9">
-                                    <span class="product-card__offers-item-label-text">
-                                        41
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="product-card__add-to-basket">В корзину</button>
-                    </form>
-                </div>
-                <div class="products-block__card product-card">
-                    <div class="product-card__img-wrap">
-                        <picture>
-                            <source type="image/webp" srcset="img/webp/prod_4.webp">
-                            <img src="img/prod_4.jpg" class="product-card__img" alt="">
-                        </picture>
-                    </div>
-                    <div class="product-card__title-wrap">
-                        <a href="/detail.html" class="product-card__title">
-                            Кроссовки WMNS TANJUN, Nike
-                        </a>
-                    </div>
-                    <div class="product-card__rating-star rating-star">
-                        <input class="rating-star-input" id="star-rating-5_ID1" type="radio" name="star-rating_ID1"
-                            value="5">
-                        <label class="rating-star-label" for="star-rating-5_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-4_ID1 type=" radio" name="star-rating_ID1"
-                            value="4">
-                        <label class="rating-star-label" for="star-rating-4_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-3_ID1" type="radio" name="star-rating_ID1"
-                            value="3">
-                        <label class="rating-star-label" for="star-rating-3_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-2_ID1" type="radio" name="star-rating_ID1"
-                            value="2">
-                        <label class="rating-star-label" for="star-rating-2_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                        <input class="rating-star-input" id="star-rating-1_ID1" type="radio" name="star-rating_ID1"
-                            value="1">
-                        <label class="rating-star-label" for="star-rating-1_ID1">
-                            <svg  class="rating-star-icon">
-                                <use xlink:href='/img/sprite.svg#icon_star'/>
-                            </svg>
-                        </label>
-                    </div>
-                    <div class="product-card__status-block">
-                        <span class="product-card__quantity">
-                            <svg class="product-card__quantity-icon">
-                                <use xlink:href='/img/sprite.svg#icon_check_checkbox'/>
-                            </svg>
-                            37 шт
-                        </span>
-                        <span class="product-card__articul">
-                            Артикул: 00674157
-                        </span>
-                    </div>
-                    <span class="product-card__price">5 500 руб.</span>
-                    <form action="#" class="product-card__form">
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Цвет</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id13" checked>
-                                <label class="product-card__offers-item-label" for="offer_id13">
-                                    <img src="img/color.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id14">
-                                <label class="product-card__offers-item-label" for="offer_id14">
-                                    <img src="img/color_1.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id15">
-                                <label class="product-card__offers-item-label" for="offer_id15">
-                                    <img src="img/color_2.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-color" id="offer_id16">
-                                <label class="product-card__offers-item-label" for="offer_id16">
-                                    <img src="img/color_3.jpg" class="product-card__offers-item-img" alt="">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="product-card__offers-block">
-                            <span class="product-card__offers-title">Размер</span>
-                            <div class="product-card__offers-wrap">
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id10" checked>
-                                <label class="product-card__offers-item-label" for="offer_size_id10">
-                                    <span class="product-card__offers-item-label-text">
-                                        39
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                name="product-card__offers-size" id="offer_size_id11">
-                                <label class="product-card__offers-item-label" for="offer_size_id11">
-                                    <span class="product-card__offers-item-label-text">
-                                        40
-                                    </span>
-                                </label>
-                                <input type="radio" class="product-card__offers-item-input"
-                                        name="product-card__offers-size" id="offer_size_id12">
-                                <label class="product-card__offers-item-label" for="offer_size_id12">
-                                    <span class="product-card__offers-item-label-text">
-                                        41
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="product-card__add-to-basket">В корзину</button>
-                    </form>
-                </div>
-            </div>
+            </template>
     </article>
     <article class="blog block-1344">
             <div class="blog__headline-block">
@@ -804,8 +403,8 @@
                         <picture>
                             <source media="(max-width: 768px)" type="image/webp" srcset="img/webp/blog_img_small.webp">
                             <source media="(max-width: 768px)" srcset="img/blog_img_small.jpg">
-                            <source type="image/webp" srcset="img/webp/blog_img.webp">
-                            <img src="img/blog_img.jpg" class="blog-main-item__img" alt="">
+                            <source type="image/webp" srcset="img/webp/blog_img.webp, img/webp/image-x2/blog_img-x2.webp 2x">
+                            <img srcset="img/image-x2/blog_img.jpg" src="img/blog_img.jpg" class="blog-main-item__img" alt="">
                         </picture>
                     </div>
                     <div class="blog-main-item__text-wrap">
@@ -1049,9 +648,9 @@
                     <input class="main-webform__input" type="tel" placeholder="Номер телефона*" required>
                     <button class="main-webform__submit" type="submit">Связаться с нами</button>
                 </div>
-                <label class="main-webform__label" for="main-webform-agree">
-                    <input class="main-webform__checkbox-input" type="checkbox" id="main-webform-agree">
-                    <div class="main-webform__checkbox-custom"></div>
+                <label class="main-webform__label">
+                    <input class="main-webform__checkbox-input" type="checkbox">
+                    <span class="main-webform__checkbox-custom"></span>
                     <span class="main-webform__agree-text">
                         Я согласен с условиями обработки
                         <a href="#" class="main-webform__confid-link">персональных данных</a>
@@ -1236,6 +835,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/assets/svg4everybody.js"></script>
+    <script src="js/main/main.js"></script>
 </body>
-
 </html>
