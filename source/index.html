@@ -376,8 +376,11 @@
                     </div>
                     <div class="product-card__status-block">
                         <span class="product-card__quantity">
-                            <svg class="product-card__quantity-icon">
+                            <svg class="product-card__quantity-icon-in-stock">
                                 <use xlink:href='/img/sprite.svg#icon_check_checkbox'/>
+                            </svg>
+                            <svg class="product-card__quantity-icon-none">
+                                <use xlink:href='/img/sprite.svg#icon_cross'/>
                             </svg>
                            <span class="product-card__quantity-count">37</span> шт 
                         </span>
@@ -836,6 +839,7 @@
         </div>
     </footer>
     <script src="js/assets/svg4everybody.js"></script>
+    <script src="js/assets/ajaxEvents.js"></script>
     <script src="js/main/main.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 @import "assets/color";
 @import "assets/header";
 @import "assets/footer";
+@import "assets/preloader";
 
 /*main-banner*/
 
@@ -625,12 +626,19 @@
     margin-bottom: 20px;
 }
 
-.product-card__quantity-icon {
+.product-card__quantity-icon-in-stock {
     width: 14px;
     height: 10px;
     margin-right: 6px;
     fill: none;
     stroke: #00B02A;
+}
+
+.product-card__quantity-icon-none {
+    width: 14px;
+    height: 10px;
+    margin-right: 6px;
+    fill: red;
 }
 
 .product-card__quantity {
