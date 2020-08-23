@@ -318,16 +318,106 @@
     </article>
     <article class="products-block block-1344">
             <h2 class="products-block__title">Товары магазина</h2>
-            <ul class="products-block__tabs-list">
-                <li class="products-block__tab-item active">
-                    <button class="products-block__tab-item-btn">Акция</button>
-                </li>
-                <li class="products-block__tab-item">
-                    <button class="products-block__tab-item-btn">Хиты</button>
-                </li>
-            </ul>
-            <div class="products-block__tabs-content"></div>
-            <template id="template-card">
+            <div class="products-block__tabs-list-wrap">
+                <ul class="products-block__tabs-list">
+                    <li class="products-block__tab-item active" data-tab="action">
+                        <button class="products-block__tab-item-btn">Акция</button>
+                    </li>
+                    <li class="products-block__tab-item" data-tab="hits">
+                        <button class="products-block__tab-item-btn">Хиты</button>
+                    </li>
+                </ul>
+                <ul class="products-block__view-choose">
+                    <li class="products-block__view-choose-item active" data-view="tiles">
+                        <svg  class="products-block__view-choose-item-icon products-block__view-choose-item-icon--tiles">
+                            <use xlink:href='/img/sprite.svg#icon_tiles'/>
+                        </svg>
+                    </li>
+                    <li class="products-block__view-choose-item" data-view="list">
+                        <svg  class="products-block__view-choose-item-icon products-block__view-choose-item-icon--list">
+                            <use xlink:href='/img/sprite.svg#icon_list'/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+            <div class="products-block__tabs-content active" data-tab="action">
+                <div class="products-block__view active" data-view="tiles"></div>
+            </div>
+            <template id="template-card-horizontal">
+                <div class="products-block__card-horizontal product-card-horizontal">
+                    <div class="product-card-horizontal__main-block">
+                        <div class="product-card-horizontal__img-wrap">
+                            <img src="img/prod_1.jpg" class="product-card-horizontal__img" alt="">
+                        </div>
+                        <div class="product-card-horizontal__prices-block">
+                            <span class="product-card-horizontal__price">3 100 руб.</span>
+                        </div>
+                        <button type="submit" class="product-card-horizontal__add-to-basket" form="form-card-horizontal">В корзину</button>
+                        <div class="product-card-horizontal__rating-star rating-star">
+                            <input class="rating-star-input" id="star-rating-5_ID1" type="radio" name="star-rating_ID1"
+                                value="5">
+                            <label class="rating-star-label" for="star-rating-5_ID1">
+                                <svg  class="rating-star-icon">
+                                    <use xlink:href='/img/sprite.svg#icon_star'/>
+                                </svg>
+                            </label>
+                            <input class="rating-star-input" id="star-rating-4_ID1" type="radio" name="star-rating_ID1"
+                                value="4">
+                            <label class="rating-star-label" for="star-rating-4_ID1">
+                                <svg  class="rating-star-icon">
+                                    <use xlink:href='/img/sprite.svg#icon_star'/>
+                                </svg>
+                            </label>
+                            <input class="rating-star-input" id="star-rating-3_ID1" type="radio" name="star-rating_ID1"
+                                value="3">
+                            <label class="rating-star-label" for="star-rating-3_ID1">
+                                <svg  class="rating-star-icon">
+                                    <use xlink:href='/img/sprite.svg#icon_star'/>
+                                </svg>
+                            </label>
+                            <input class="rating-star-input" id="star-rating-2_ID1" type="radio" name="star-rating_ID1"
+                                value="2">
+                            <label class="rating-star-label" for="star-rating-2_ID1">
+                                <svg  class="rating-star-icon">
+                                    <use xlink:href='/img/sprite.svg#icon_star'/>
+                                </svg>
+                            </label>
+                            <input class="rating-star-input" id="star-rating-1_ID1" type="radio" name="star-rating_ID1"
+                                value="1">
+                            <label class="rating-star-label" for="star-rating-1_ID1">
+                                <svg  class="rating-star-icon">
+                                    <use xlink:href='/img/sprite.svg#icon_star'/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="product-card-horizontal__side-block">
+                        <div class="product-card-horizontal__title-wrap">
+                            <a href="/detail.html" class="product-card-horizontal__title">
+                                Кеды SB DELTA FORCEVULC, Nike
+                            </a>
+                        </div>
+                        <div class="product-card-horizontal__status-block">
+                            <span class="product-card-horizontal__articul">
+                                Артикул: <span class="product-card-horizontal__articul-text">00674157</span> 
+                            </span>
+                            <span class="product-card-horizontal__quantity">
+                                <svg class="product-card-horizontal__quantity-icon-in-stock">
+                                    <use xlink:href='/img/sprite.svg#icon_check_checkbox'/>
+                                </svg>
+                                <svg class="product-card-horizontal__quantity-icon-none">
+                                    <use xlink:href='/img/sprite.svg#icon_cross'/>
+                                </svg>
+                            <span class="product-card-horizontal__quantity-count">37</span> шт 
+                            </span>
+                        </div>
+                        <form action="#" id="form-card-horizontal" class="product-card-horizontal__form">
+                           
+                        </form>
+                    </div>
+                </div>
+            </template>
+            <template id="template-card-vertical">
                 <div class="products-block__card product-card">
                     <div class="product-card__img-wrap">
                         <img src="img/prod_1.jpg" class="product-card__img" alt="">
@@ -840,6 +930,8 @@
     </footer>
     <script src="js/assets/svg4everybody.js"></script>
     <script src="js/assets/ajaxEvents.js"></script>
+    <script src="js/main/ClassCardProductVertical.js"></script>
+    <script src="js/main/ClassCardProductHorizontal.js"></script>
     <script src="js/main/main.js"></script>
 </body>
 </html>

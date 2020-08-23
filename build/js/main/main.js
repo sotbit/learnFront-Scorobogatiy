@@ -1,206 +1,113 @@
 "use strict";
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 svg4everybody();
+var containerCards = document.querySelector(".products-block__view");
+ajaxGetCards(containerCards, "tails");
+addEventToViewBtn();
 
-var CardProduct = /*#__PURE__*/function () {
-  function CardProduct(data) {
-    _classCallCheck(this, CardProduct);
+function insertCardsProduct(arrCards, containerCards, view) {
+  arrCards.forEach(function (elem) {
+    if (view == "tails") {
+      var newCard = new CardProductVertical(elem);
+      newCard.createCardProduct(containerCards);
+    } else if (view == "list") {
+      var _newCard = new CardProductHorizontal(elem);
 
-    this.id = data.id;
-    this.imgSrc = data.imgSrc;
-    this.price = data.price;
-    this.productCode = data.productCode;
-    this.quantity = data.quantity;
-    this.rating = data.rating;
-    this.title = data.title;
-    this.colors = data.colors;
-    this.size = data.size;
-  }
+      _newCard.createCardProduct(containerCards);
+    }
+  });
+}
 
-  _createClass(CardProduct, [{
-    key: "createCardProduct",
-    value: function createCardProduct(templateCard) {
-      var _this = this;
+function ajaxGetCards(containerCards, view) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://alex-checktask.devsotbit.ru/teaching/products.php");
+  xhr.timeout = 2000;
 
-      var cloneCard = templateCard.cloneNode(true);
-      var formElem = cloneCard.querySelector(".product-card__form"),
-          submitFormElem = cloneCard.querySelector(".product-card__add-to-basket"),
-          quantityIconYes = cloneCard.querySelector(".product-card__quantity-icon-in-stock"),
-          quantityIconNo = cloneCard.querySelector(".product-card__quantity-icon-none"),
-          quantity = cloneCard.querySelector(".product-card__quantity-count"),
-          stars = cloneCard.querySelector(".product-card__rating-star"),
-          inputStar = Array.prototype.slice.call(stars.querySelectorAll(".rating-star-input")),
-          labelStar = stars.querySelectorAll(".rating-star-label"),
-          img = cloneCard.querySelector(".product-card__img"),
-          title = cloneCard.querySelector(".product-card__title"),
-          articul = cloneCard.querySelector(".product-card__articul-text"),
-          price = cloneCard.querySelector(".product-card__price"),
-          btnSubmit = cloneCard.querySelector(".product-card__add-to-basket");
-      addEventToCardButtons(btnSubmit, this.id);
-      img.setAttribute("src", this.imgSrc[0].src);
-      title.textContent = this.title;
-      articul.textContent = this.productCode;
-      price.textContent = this.price;
-      inputStar.forEach(function (star, numStar) {
-        star.id = "star-rating_ID" + numStar + _this.id;
-        star.name = "star-rating_ID" + _this.id;
-        labelStar[numStar].setAttribute("for", "star-rating_ID" + numStar + _this.id);
+  xhr.onload = function () {
+    if (xhr.status != 200) {
+      addErrorText(containerCards, "error");
+    } else {
+      var arrCards = JSON.parse(xhr.response);
+      insertCardsProduct(arrCards, containerCards, view);
+      removePreloader();
+    }
+  };
 
-        if (_this.rating == star.value) {
-          star.checked = true;
+  xhr.ontimeout = function () {
+    addErrorText(containerCards, "timeout");
+    removePreloader();
+  };
+
+  xhr.send();
+  showPreloader();
+}
+
+function addEventToViewBtn() {
+  var btnViewList = document.querySelectorAll(".products-block__view-choose-item");
+
+  var _iterator = _createForOfIteratorHelper(btnViewList),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var view = _step.value;
+      view.addEventListener("click", function () {
+        var viewBlock = checkView(this.dataset.view);
+        removeActiveClass("products-block__view");
+        removeActiveClass("products-block__view-choose-item");
+        this.classList.add("active");
+
+        if (viewBlock) {
+          viewBlock.classList.add("active");
+        } else {
+          var newViewBlock = createViewBlock(this.dataset.view);
+          ajaxGetCards(newViewBlock, this.dataset.view);
+          newViewBlock.classList.add("active");
         }
       });
-
-      if (this.quantity <= 0) {
-        quantity.textContent = 0;
-        quantityIconYes.style.display = "none";
-      } else {
-        quantity.textContent = this.quantity;
-        quantityIconNo.style.display = "none";
-      }
-
-      if (this.colors) {
-        var colorOffers = formElem.insertBefore(createOffersBlock(), submitFormElem),
-            colorOffersTitle = colorOffers.querySelector(".product-card__offers-title"),
-            colorOffersWrap = colorOffers.querySelector(".product-card__offers-wrap");
-        colorOffersTitle.textContent = "Цвет";
-        this.colors.forEach(function (color, num) {
-          var colorInput = colorOffersWrap.appendChild(createElement("input", "product-card__offers-item-input")),
-              colorLabel = colorOffersWrap.appendChild(createElement("label", "product-card__offers-item-label")),
-              colorImg = colorLabel.appendChild(createElement("img", "product-card__offers-item-img"));
-          colorInput.type = "radio";
-          colorInput.id = "color_offer_" + _this.id + num;
-          colorInput.name = "product-card__offers-color";
-          colorInput.value = color.nameColor;
-          colorLabel.setAttribute("for", colorInput.id);
-          colorLabel.dataset.nameColor = color.nameColor;
-          colorImg.setAttribute("src", color.imgColor);
-          addEventToColor(colorLabel, _this.imgSrc, img);
-
-          if (num == 0) {
-            colorInput.checked = true;
-          }
-        });
-      }
-
-      if (this.size) {
-        var sizeOffers = formElem.insertBefore(createOffersBlock(), submitFormElem),
-            sizeOffersTitle = sizeOffers.querySelector(".product-card__offers-title"),
-            sizeOffersWrap = sizeOffers.querySelector(".product-card__offers-wrap");
-        sizeOffersTitle.textContent = "Размер";
-        this.size.forEach(function (size, num) {
-          var sizeInput = sizeOffersWrap.appendChild(createElement("input", "product-card__offers-item-input")),
-              sizeLabel = sizeOffersWrap.appendChild(createElement("label", "product-card__offers-item-label")),
-              sizeSpan = sizeLabel.appendChild(createElement("span", "product-card__offers-item-label-text"));
-          sizeInput.type = "radio";
-          sizeInput.id = "size_offer_" + _this.id + num;
-          sizeInput.name = "product-card__offers-size";
-          sizeInput.value = size;
-          sizeLabel.setAttribute("for", sizeInput.id);
-          sizeSpan.textContent = size;
-
-          if (num == 0) {
-            sizeInput.checked = true;
-          }
-        });
-      }
-
-      return cloneCard;
     }
-  }]);
-
-  return CardProduct;
-}();
-
-var xhr = new XMLHttpRequest();
-var containerCards = document.querySelector(".products-block__tabs-content");
-xhr.open("POST", "http://alex-checktask.devsotbit.ru/teaching/products.php");
-xhr.timeout = 2000;
-
-xhr.onload = function () {
-  if (xhr.status != 200) {
-    addErrorText(containerCards, "error");
-  } else {
-    var arrCards = JSON.parse(xhr.response);
-    insertCardsProduct(arrCards);
-    removePreloader();
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
-};
-
-xhr.ontimeout = function () {
-  addErrorText(containerCards, "timeout");
-  removePreloader();
-};
-
-xhr.send();
-showPreloader();
-
-function insertCardsProduct(arrCards) {
-  var template = document.querySelector("#template-card"),
-      card = template.content.querySelector(".product-card"),
-      containerCards = document.querySelector(".products-block__tabs-content");
-  arrCards.forEach(function (elem) {
-    var newCard = new CardProduct(elem);
-    containerCards.appendChild(newCard.createCardProduct(card));
-  });
 }
 
-function createOffersBlock() {
-  var offersBlock = document.createElement("div"),
-      offersBlockTitle = document.createElement("span"),
-      offersBlockWrap = document.createElement("div");
-  offersBlock.classList.add("product-card__offers-block");
-  offersBlockTitle.classList.add("product-card__offers-title");
-  offersBlockWrap.classList.add("product-card__offers-wrap");
-  offersBlock.append(offersBlockTitle);
-  offersBlock.append(offersBlockWrap);
-  return offersBlock;
+function checkView(dataView) {
+  var activeTab = document.querySelector(".products-block__tabs-content.active"),
+      view = activeTab.querySelector(".products-block__view[data-view='" + dataView + "']");
+  return view;
 }
 
-function createElement(element, classElem) {
-  var elem = document.createElement(element);
-  elem.classList.add(classElem);
-  return elem;
+function removeActiveClass(nameClass) {
+  var viewBlocks = document.querySelectorAll("." + nameClass);
+
+  var _iterator2 = _createForOfIteratorHelper(viewBlocks),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var view = _step2.value;
+      view.classList.remove("active");
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
 }
 
-function addEventToCardButtons(btn, idCard) {
-  btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    sendProduct(idCard, getCheckedColor(btn).value, getCheckedSize(btn).value);
-  });
-}
-
-function getCheckedColor(btn) {
-  return btn.closest(".product-card").querySelector("input[name='product-card__offers-color']:checked");
-}
-
-function getCheckedSize(btn) {
-  return btn.closest(".product-card").querySelector("input[name='product-card__offers-size']:checked");
-}
-
-function sendProduct(id, color, size) {
-  var xhr = new XMLHttpRequest();
-  var body = JSON.stringify({
-    id: id,
-    color: color,
-    size: size
-  });
-  xhr.open("POST", "http://alex-checktask.devsotbit.ru/teaching/buy.php");
-  xhr.send(body);
-}
-
-function addEventToColor(label, arrColor, img) {
-  label.addEventListener("click", function () {
-    arrColor.forEach(function (el) {
-      if (label.dataset.nameColor == el.name) {
-        img.setAttribute("src", el.src);
-      }
-    });
-  });
+function createViewBlock(dataView) {
+  var activeTab = document.querySelector(".products-block__tabs-content.active"),
+      viewBlock = document.createElement("div");
+  viewBlock.classList.add("products-block__view");
+  viewBlock.dataset.view = dataView;
+  activeTab.append(viewBlock);
+  return viewBlock;
 }
