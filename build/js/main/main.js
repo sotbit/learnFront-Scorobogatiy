@@ -1,114 +1,113 @@
 "use strict";
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 svg4everybody();
-var arr_cards = [{
-  id: "1",
-  img_src: "img/prod_1.jpg",
-  name: "Кеды SB DELTA FORCEVULC, Nike",
-  quantity: 37,
-  articul: "00674157",
-  price: 3700,
-  arr_color: ["img/color.jpg", "img/color_1.jpg", "img/color_2.jpg"],
-  arr_size: [34, 37, 45]
-}, {
-  id: "2",
-  img_src: "img/prod_2.jpg",
-  name: "Кедsdfsdfsdf sdf",
-  quantity: 34,
-  articul: "00674157",
-  price: 33700
-}, {
-  id: "3",
-  img_src: "img/prod_3.jpg",
-  name: "Кеды SB DELTA FORCEVULC, Nike",
-  quantity: 37,
-  articul: "00674157",
-  price: 3700,
-  arr_color: ["img/color.jpg", "img/color_1.jpg", "img/color_2.jpg"],
-  arr_size: [34, 37, 45]
-}, {
-  id: "4",
-  img_src: "img/prod_4.jpg",
-  name: "Кедsdfsdfsdf sdf",
-  quantity: 34,
-  articul: "00674157",
-  price: 33700
-}];
-var template = document.querySelector("#template-card"),
-    container_cards = document.querySelector(".products-block__tabs-content"),
-    img = template.content.querySelector(".product-card__img"),
-    title = template.content.querySelector(".product-card__title"),
-    quantity = template.content.querySelector(".product-card__quantity-count"),
-    articul = template.content.querySelector(".product-card__articul-text"),
-    price = template.content.querySelector(".product-card__price"),
-    card = template.content.querySelector(".product-card"),
-    stars = template.content.querySelector(".product-card__rating-star"),
-    input_star = stars.querySelectorAll(".rating-star-input"),
-    label_star = stars.querySelectorAll(".rating-star-label"),
-    offers_block = document.createElement("div"),
-    offers_block_title = document.createElement("span"),
-    offers_block_wrap = document.createElement("div"),
-    offer_input = document.createElement("input"),
-    offer_label = document.createElement("label"),
-    offer_img = document.createElement("img"),
-    offer_span = document.createElement("span");
-offers_block.classList.add("product-card__offers-block");
-offers_block_title.classList.add("product-card__offers-title");
-offers_block_wrap.classList.add("product-card__offers-wrap");
-offers_block.append(offers_block_title);
-offers_block.append(offers_block_wrap);
-offer_input.classList.add("product-card__offers-item-input");
-offer_input.type = "radio";
-offer_label.classList.add("product-card__offers-item-label");
-offer_img.classList.add("product-card__offers-item-img");
-offer_span.classList.add("product-card__offers-item-label-text");
-arr_cards.forEach(function (elem) {
-  img.setAttribute("src", elem.img_src);
-  title.textContent = elem.name;
-  quantity.textContent = elem.quantity;
-  articul.textContent = elem.articul;
-  price.textContent = elem.price;
+var containerCards = document.querySelector(".products-block__view");
+ajaxGetCards(containerCards, "tails");
+addEventToViewBtn();
 
-  for (var i = 0; i < 5; i++) {
-    input_star[i].id = "star-rating_ID" + i + elem.id;
-    input_star[i].name = "star-rating_ID" + elem.id;
-    label_star[i].setAttribute("for", "star-rating_ID" + i + elem.id);
+function insertCardsProduct(arrCards, containerCards, view) {
+  arrCards.forEach(function (elem) {
+    if (view == "tails") {
+      var newCard = new CardProductVertical(elem);
+      newCard.createCardProduct(containerCards);
+    } else if (view == "list") {
+      var _newCard = new CardProductHorizontal(elem);
+
+      _newCard.createCardProduct(containerCards);
+    }
+  });
+}
+
+function ajaxGetCards(containerCards, view) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://alex-checktask.devsotbit.ru/teaching/products.php");
+  xhr.timeout = 2000;
+
+  xhr.onload = function () {
+    if (xhr.status != 200) {
+      addErrorText(containerCards, "error");
+    } else {
+      var arrCards = JSON.parse(xhr.response);
+      insertCardsProduct(arrCards, containerCards, view);
+      removePreloader();
+    }
+  };
+
+  xhr.ontimeout = function () {
+    addErrorText(containerCards, "timeout");
+    removePreloader();
+  };
+
+  xhr.send();
+  showPreloader();
+}
+
+function addEventToViewBtn() {
+  var btnViewList = document.querySelectorAll(".products-block__view-choose-item");
+
+  var _iterator = _createForOfIteratorHelper(btnViewList),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var view = _step.value;
+      view.addEventListener("click", function () {
+        var viewBlock = checkView(this.dataset.view);
+        removeActiveClass("products-block__view");
+        removeActiveClass("products-block__view-choose-item");
+        this.classList.add("active");
+
+        if (viewBlock) {
+          viewBlock.classList.add("active");
+        } else {
+          var newViewBlock = createViewBlock(this.dataset.view);
+          ajaxGetCards(newViewBlock, this.dataset.view);
+          newViewBlock.classList.add("active");
+        }
+      });
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
+}
 
-  var clone_card = document.importNode(card, true);
-  container_cards.appendChild(clone_card);
-  var form_elem = clone_card.querySelector(".product-card__form"),
-      submit_form_elem = clone_card.querySelector(".product-card__add-to-basket");
+function checkView(dataView) {
+  var activeTab = document.querySelector(".products-block__tabs-content.active"),
+      view = activeTab.querySelector(".products-block__view[data-view='" + dataView + "']");
+  return view;
+}
 
-  if (elem.arr_color) {
-    var color_offers = form_elem.insertBefore(offers_block.cloneNode(true), submit_form_elem),
-        color_offers_title = color_offers.querySelector(".product-card__offers-title"),
-        color_offers_wrap = color_offers.querySelector(".product-card__offers-wrap");
-    color_offers_title.textContent = "Цвет";
-    elem.arr_color.forEach(function (color, num) {
-      var color_input = color_offers_wrap.appendChild(offer_input.cloneNode()),
-          color_label = color_offers_wrap.appendChild(offer_label.cloneNode()),
-          color_img = color_label.appendChild(offer_img.cloneNode());
-      color_input.id = "color_offer_" + elem.id + num;
-      color_input.name = "product-card__offers-color";
-      color_label.setAttribute("for", color_input.id);
-      color_img.setAttribute("src", color);
-    });
+function removeActiveClass(nameClass) {
+  var viewBlocks = document.querySelectorAll("." + nameClass);
+
+  var _iterator2 = _createForOfIteratorHelper(viewBlocks),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var view = _step2.value;
+      view.classList.remove("active");
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
   }
+}
 
-  if (elem.arr_size) {
-    var size_offers = form_elem.insertBefore(offers_block.cloneNode(true), submit_form_elem),
-        size_offers_title = size_offers.querySelector(".product-card__offers-title"),
-        size_offers_wrap = size_offers.querySelector(".product-card__offers-wrap");
-    size_offers_title.textContent = "Размер";
-    elem.arr_size.forEach(function (size, num) {
-      var size_input = size_offers_wrap.appendChild(offer_input.cloneNode()),
-          size_label = size_offers_wrap.appendChild(offer_label.cloneNode()),
-          size_span = size_label.appendChild(offer_span.cloneNode());
-      size_input.id = "size_offer_" + elem.id + num;
-      size_input.name = "product-card__offers-size";
-      size_label.setAttribute("for", size_input.id);
-      size_span.textContent = size;
-    });
-  }
-});
+function createViewBlock(dataView) {
+  var activeTab = document.querySelector(".products-block__tabs-content.active"),
+      viewBlock = document.createElement("div");
+  viewBlock.classList.add("products-block__view");
+  viewBlock.dataset.view = dataView;
+  activeTab.append(viewBlock);
+  return viewBlock;
+}
